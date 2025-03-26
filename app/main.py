@@ -4,5 +4,8 @@ def copy_file(command: str) -> None:
         if copy_command == "cp" and file != file_copy:
             with open(file, "r") as file_in, open(file_copy, "w") as file_out:
                 file_out.write(file_in.read())
-    except Exception:
+
+    except FileNotFoundError:
+        pass
+    except ValueError:
         pass
